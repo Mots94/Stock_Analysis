@@ -20,7 +20,9 @@ For i = tickerArrayStart To tickerArrayEnd
         
 Next i
 ```
- 
+Finally, a code block was written to loop through all rows, using conditionals to add up tickerVolumes, find the tickerStartingPrices, and find the tickerEndingPrices for each ticker.  Within the conditional statements, the tickerIndex variable was used as an index to pull the correct data for each of the three output arrays.  This can be seen in the following code block
+```
 ---
 ##Results
-A detailed VBA subroutine was written for Steve 
+---
+##Summary
