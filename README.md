@@ -22,7 +22,41 @@ Next i
 ```
 Finally, a code block was written to loop through all rows, using conditionals to add up tickerVolumes, find the tickerStartingPrices, and find the tickerEndingPrices for each ticker.  Within the conditional statements, the tickerIndex variable was used as an index to pull the correct data for each of the three output arrays.  This can be seen in the following code block
 ```
+For i = 2 To RowCount
+    
+    tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+    
+    If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
+    
+        tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+        
+    End If
+    
+    If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+    
+        tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+            
+    End If
+        
+    If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+    
+        tickerIndex = tickerIndex + 1
+        
+    End If
+    
+Next i
+```
+One other essential part of this code is the conditional statement at the end.  This statement increases the tickerIndex value by 1 if a new ticker symbol is found in a row following the current ticker.  Rather than having to loop through both the array of tickers and the rows in a spreadsheet, this index variable acts as a reference point so data can just be collected by looping through the data rows.     
 ---
 ##Results
+When running the original code that was built throughout the module, the compilation time was about .81 seconds for both the 2017 and 2018 worksheets.
+![VBAO2017](VBA_Challenge_2017_Original.png)
+![VBAO2018](VBA_Challenge_2018_Original.png)
+After refactoring the original code to its current state, the time to compile data dropped to about .11 seconds in both the 2017 and 2018 worksheets. This constitutes an 86% decrease in time taken to execute this code and compile data.  
+![VBAR2017](VBA_Challenge_2017_Refactored.png)
+![VBAR2018](VBA_Challenge_2018_Refactored.png)
+Even after completing this refactoring, the data captured for all 12 tickers remained the same as the original analysis
+![DO2017](Data_Output_2017.png)
+![DO2018](Data_Output_2018.png) 
 ---
 ##Summary
