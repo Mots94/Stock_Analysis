@@ -1,10 +1,12 @@
 # Stock Market Analysis
 
+![Stocks](https://github.com/Mots94/stock-analysis/blob/main/Resources/Stocks.png)
+
 ## Using VBA to explore stock data
 
 ---
 ## Purpose
-Steve works in finance and is searching for some specific information on stocks for his parents.  They are looking to invest in the stock market, and would like to know more about the total volume and yearly returns for the stock data that Steve has available.  In order to help Steve, we are searching an Excel workbook with stock data from the years 2017 and 2018.  This workbook has about 3000 rows of data for 12 stocks in both the 2017 and 2018 worksheets.  That is a considerable amount of data for analysis, so VBA was used to search our 2017 and 2018 worksheets for relevant financial data.  The original code created to accomplish this goal utilized a nested "for loop", which loops through all rows of data as well as a list of stock tickers.  This code runs fairly quickly for 12 stocks, but Steve would like to look at a much larger cross-section of the stock market for future analyses.  If our data set consisted of 40,000 rows instead of 3,000 the current code may take much longer to run.  Therefore, the challenge here was to re-factor our current code to only utilize one loop searching through data rows instead of looping through data rows and our list of stock tickers. 
+Steve works in finance and is searching for some specific information on stocks for his parents.  They are looking to invest in the stock market, and would like to know more about the total volume and yearly returns for the stock data that Steve has available.  In order to help Steve, we are searching an Excel workbook with stock data from the years 2017 and 2018.  This workbook has about 3000 rows of data for 12 stocks in both the 2017 and 2018 worksheets.  That is a considerable amount of data for analysis, so VBA was used to search our 2017 and 2018 worksheets for relevant financial data.  The original code created to accomplish this goal utilized a nested "for loop", which loops through all rows of data as well as a list of stock tickers.  This code runs fairly quickly for 12 stocks, but Steve would like to look at a much larger cross-section of the stock market for future analyses.  If our data set consisted of 40,000 rows instead of 3,000 the current code may take much longer to run.  Therefore, the challenge here was to refactor our current code to only utilize one loop searching through data rows instead of looping through data rows and our list of stock tickers. 
 
 ---
 ## Methods
@@ -22,7 +24,7 @@ For i = tickerArrayStart To tickerArrayEnd
         
 Next i
 ```
-Finally, a code block was written to loop through all rows, using conditionals to add up tickerVolumes, find the tickerStartingPrices, and find the tickerEndingPrices for each ticker.  Within the conditional statements, the tickerIndex variable was used as an index to pull the correct data for each of the three output arrays.  This can be seen in the following code block
+Finally, a code block was written to loop through all rows, using conditionals to add up tickerVolumes, find the tickerStartingPrices, and find the tickerEndingPrices for each ticker.  Within the conditional statements, the tickerIndex variable was used as an array index to pull the correct data for each of the three output arrays.  This can be seen in the following code block
 ```
 For i = 2 To RowCount
     
@@ -69,3 +71,4 @@ Even after completing this refactoring, the data captured for all 12 tickers rem
 
 ---
 ## Summary
+Through this challenge, I have found there to be advantages and disadvantages to refactoring code.  One of the disadvantages is the challenge of determining how to use previously learned coding strategies, and re-organizing them in a more efficient manner.  I did have to do a few hours of research before having a clear idea of how to properly use an index variable to reference an array, rather than just looping through the array itself.  However, a distinct advantage of using this refactored code to analyze stocks is a much quicker output of data.  This could matter in the future for Steve if he wants to analyze hundreds of stocks all at once.  In general, another disadvantage to refactoring is the potential to make mistakes when writing new code.  If the code will not run, the analyst would have to debug any mistakes.  There may be instances where, if the code used for an analysis is quite long, the debugging process could be extremely time consuming.  Although refactoring and debugging can be time consuming, these things may also be seen as an advantage as well.  The analyst doing the refactoring and debugging is learning more about any mistakes made, and can use that knowledge for future projects.
