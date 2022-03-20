@@ -1,11 +1,11 @@
-#Stock Market Analysis
+# Stock Market Analysis
 
-##Using VBA to explore stock data
+## Using VBA to explore stock data
 ---
-##Purpose
+## Purpose
 Steve works in finance and is searching for some specific information on stocks for his parents.  They are looking to invest in the stock market, and would like to know more about the total volume and yearly returns for the stock data that Steve has available.  In order to help Steve, we are searching an Excel workbook with stock data from the years 2017 and 2018.  This workbook has about 3000 rows of data for 12 stocks in both the 2017 and 2018 worksheets.  That is a considerable amount of data for analysis, so VBA was used to search our 2017 and 2018 worksheets for relevant financial data.  The original code created to accomplish this goal utilized a nested "for loop", which loops through all rows of data as well as a list of stock tickers.  This code runs fairly quickly for 12 stocks, but Steve would like to look at a much larger cross-section of the stock market for future analyses.  If our data set consisted of 40,000 rows instead of 3,000 the current code may take much longer to run.  Therefore, the challenge here was to re-factor our current code to only utilize one loop searching through data rows instead of looping through data rows and our list of stock tickers. 
 ---
-##Methods
+## Methods
 In order to utilize one loop that could capture all data for a stock ticker at once, there must be a way to reference which stock ticker is currently being searched for in the data.  This was addressed by creating a reference variable called tickerIndex with the code `tickerIndex = 0`.   This new variable was set to 0 since our tickers array begins at 0.  Additionally, three output arrays were created to hold the total volume, starting price, and ending price for each of the 12 stocks in our tickers array.  This was done using the code 
 ``` 
 Dim tickerVolumes(12) As Long
@@ -48,7 +48,7 @@ Next i
 ```
 One other essential part of this code is the conditional statement at the end.  This statement increases the tickerIndex value by 1 if a new ticker symbol is found in a row following the current ticker.  Rather than having to loop through both the array of tickers and the rows in a spreadsheet, this index variable acts as a reference point so data can just be collected by looping through the data rows.     
 ---
-##Results
+## Results
 When running the original code that was built throughout the module, the compilation time was about .81 seconds for both the 2017 and 2018 worksheets.
 ![VBAO2017](VBA_Challenge_2017_Original.png)
 ![VBAO2018](VBA_Challenge_2018_Original.png)
@@ -59,4 +59,4 @@ Even after completing this refactoring, the data captured for all 12 tickers rem
 ![DO2017](Data_Output_2017.png)
 ![DO2018](Data_Output_2018.png) 
 ---
-##Summary
+## Summary
