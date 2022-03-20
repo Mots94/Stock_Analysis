@@ -53,12 +53,17 @@ One other essential part of this code is the conditional statement at the end.  
 ---
 ## Results
 When running the original code that was built throughout the module, the compilation time was about .81 seconds for both the 2017 and 2018 worksheets.
+
 ![VBAO2017](https://github.com/Mots94/stock-analysis/blob/main/Resources/VBA_Challenge_2017_Original.PNG)
 ![VBAO2018](https://github.com/Mots94/stock-analysis/blob/main/Resources/VBA_Challenge_2018_Original.PNG)
+
 After refactoring the original code to its current state, the time to compile data dropped to about .11 seconds in both the 2017 and 2018 worksheets. This constitutes an 86% decrease in time taken to execute this code and compile data.  
+
 ![VBAR2017](https://github.com/Mots94/stock-analysis/blob/main/Resources/VBA_Challenge_2017_Refactored.PNG)
 ![VBAR2018](https://github.com/Mots94/stock-analysis/blob/main/Resources/VBA_Challenge_2018_Refactored.PNG)
+
 Even after completing this refactoring, the data captured for all 12 tickers remained the same as the original analysis
+
 ![DO2017](https://github.com/Mots94/stock-analysis/blob/main/Resources/Data_Output_2017.PNG)
 ![DO2018](https://github.com/Mots94/stock-analysis/blob/main/Resources/Data_Output_2018.PNG) 
 
